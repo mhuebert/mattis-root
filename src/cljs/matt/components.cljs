@@ -8,54 +8,48 @@
 
 (defn nav []
   [:div
-   [:p
-    (if @u-name [:strong @u-name])
-    (if @u-image-url [:img {:src @u-image-url}])
-    ]
-   [:p [:a {:href "/"} "home"]
+
+   [:p [:a {:href "/" :style {:font-size 100}} "/"]
     " "
-    [:a {:href "/a/"} "a"]
+    [:a {:href "/abracadabra/" :style {:font-size 60}} "a"]
     " "
-    [:a {:href "/b/"} "b"]
+    [:a {:href "/bravado/" :style {:font-size 40}} "b"]
     " "
-    [:a {:href "/c/"} "c"]]
+    [:a {:href "/calypso/crash/candy/" :style {:font-size 80}} "c"]]
    [:br]  [:br]
    [:a {:on-click js/signIn} "Sign in with Google"]
    [:br]
-   [:a {:on-click js/signOut} "Sign Out"]])
+   [:a {:on-click js/signOut} "Sign Out"]
+   [:div
+    (if @u-name [:p [:strong @u-name]])
+    (if @u-image-url [:img {:src @u-image-url}])]])
 
 
 
 ;gapi.auth2.getAuthInstance()
 ;https://developers.google.com/identity/sign-in/web/sign-in#get_profile_information
-#_(defn aws []
-  (fn []
-    [:div
-     [:div "Unique User ID:" (:user-id @state)]
-     [nav]
-     [:a {:on-click #(.signIn matt.auth/google-auth)} "Sign in with Google"]
-     [:a {:on-click #(.signOut matt.auth/google-auth)} "Sign Out"]]))
+
 
 (defn home []
   (fn []
     [:div
-     [:h2 "home"]
+     [:h2 "you are home."]
      [nav]]))
 
 (defn a []
   (fn []
     [:div
-     [:h2 "a"]
+     [:h2 "acrobat"]
      [nav]]))
 
 (defn b []
   [:div
-   [:h2 "b"]
+   [:h2 "bulldog"]
    [nav]])
 
 (defn c []
   [:div
-   [:h2 "c"]
+   [:h2 "crash"]
    [nav]])
 
 (defn layout []

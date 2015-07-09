@@ -11,9 +11,9 @@
 (def layout (r/cursor state [:layout]))
 
 (defroute "/" [] (reset! layout c/home))
-(defroute "/a/" [] (reset! layout c/a))
-(defroute "/b/" [] (reset! layout c/b))
-(defroute "/c/" [] (reset! layout c/c))
+(defroute "/abracadabra/" [] (reset! layout c/a))
+(defroute "/bravado/" [] (reset! layout c/b))
+(defroute "/calypso/crash/candy/" [] (reset! layout c/c))
 
 (defn get-path [] (let [hash (-> js/window .-location .-hash)] (if (empty? hash) nil (.substr hash 1))))
 
